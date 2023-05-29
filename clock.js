@@ -13,9 +13,12 @@ function updateClock() {
   seconds = seconds < 10 ? '0' + seconds : seconds;
 
   let time = hours + ':' + minutes + ':' + seconds;
+    let amPm = hours >= 12 ? 'PM' : 'AM';
+
 
   // Update the clock element with the current time
-  document.querySelector('.clock').textContent = time;
+  document.querySelector('.time').textContent = time;
+  document.querySelector('.am-pm').textContent = amPm;
 }
 
 // Update the clock immediately

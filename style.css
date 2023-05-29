@@ -41,14 +41,13 @@ form {
     padding: 15px;
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    flex-direction: column;
     
   }
  .search {
     outline: none;
     border: none;
-    height: 5px;
+    height: 50px;
     width: 100%;
     border-radius: 50px;
     padding-left: 10px;

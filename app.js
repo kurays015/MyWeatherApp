@@ -3,6 +3,7 @@
 
 
 const form = document.querySelector('form');
+const weatherDetails = document.querySelector('.weather-container');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -15,6 +16,9 @@ form.addEventListener('submit', e => {
 
   //kukunin ang itatype sa input na city at ipapasa sa getCityandWeather function
   getCityandWeather(city);
+
+  //when submit, this will display
+  weatherDetails.style.display = 'block'
 
   
 })
@@ -46,8 +50,7 @@ const getCityandWeather = async (city) => {
 
 //Display the weather details
 function displayWeather(data) {
-
-  const weatherDetails = document.querySelector('.weather-container');
+
   const temp = Math.round(data.main.temp);
   let weatherIcon = document.querySelector('.weather-icon');
 

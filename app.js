@@ -48,7 +48,7 @@ const getCityandWeather = async (city) => {
 
   
   } catch(error) {
-     document.querySelector('.error-mesage').innerHTML = error;    
+      alert('Invalid Keyword')    
   }
 }
 
@@ -80,23 +80,15 @@ function displayWeather(data) {
   // Create the HTML content for the weather details
   let html = ` 
     <li data-aos="fade-right"
-    data-aos-offset="300"
-    data-aos-easing="ease-in-sine"
     class="left">Temperature - ${temp}°C<img src="img/temperature.png" class="temp"</li>
-
+    
     <li data-aos="fade-left"
-    data-aos-offset="300"
-    data-aos-easing="ease-in-sine"
     class="left">Wind Speed - ${data.wind.speed} km/h<img src="img/wind.png" class="humidity"</li>
 
     <li data-aos="fade-right"
-    data-aos-offset="300"
-    data-aos-easing="ease-in-sine"
     class="left">Humidity - ${data.main.humidity}%<img src="img/humidity.png" class="humidity"></li>
 
     <li data-aos="fade-left"
-    data-aos-offset="300"
-    data-aos-easing="ease-in-sine"
     class="left">${data.weather[0].main}</li>
 
     <h1 data-aos="fade-up"

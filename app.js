@@ -5,6 +5,8 @@
 const form = document.querySelector('form');
 const weatherDetails = document.querySelector('.weather-container');
 
+
+
 form.addEventListener('submit', e => {
   e.preventDefault();
 
@@ -17,10 +19,9 @@ form.addEventListener('submit', e => {
   //kukunin ang itatype sa input na city at ipapasa sa getCityandWeather function
   getCityandWeather(city);
 
-  //when submit, this will display
   weatherDetails.style.display = 'block'
 
-  
+
 })
 
 
@@ -31,12 +32,16 @@ const getCityandWeather = async (city) => {
   const API_KEY = '09b5f262144a058f65a9c1820bee5462'
 
   
-
   try {
     //get data
     const URL = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${API_KEY}`
 
     const response = await fetch(URL);
+    //aralin bukas
+    // if (!response.ok) {
+    //   alert("No weather found.");
+    //   throw new Error("No weather found.");
+    // }
     const data = await response.json();
     //pass the data to displayWeather function
     displayWeather(data);
@@ -50,7 +55,7 @@ const getCityandWeather = async (city) => {
 
 //Display the weather details
 function displayWeather(data) {
-
+
   const temp = Math.round(data.main.temp);
   let weatherIcon = document.querySelector('.weather-icon');
 
@@ -68,16 +73,35 @@ function displayWeather(data) {
 
   // Create a new li element for the weather icon
   const weatherIconItem = document.createElement('li');
+  weatherIconItem.setAttribute('data-aos', 'zoom-in');
   weatherIconItem.appendChild(weatherIcon);
  
 
   // Create the HTML content for the weather details
   let html = ` 
-    <li class="left">Temperature - ${temp}°C<img src="img/temperature.png" class="temp"</li>
-    <li class="left">Wind Speed - ${data.wind.speed}<img src="img/wind.png" class="humidity"</li>
-    <li class="left">Humidity - ${data.main.humidity}%<img src="img/humidity.png" class="humidity"></li>
-    <li class="left">${data.weather[0].description}</li>
-    <h1 class="city-name">${data.name}</h1>`;
+    <li data-aos="fade-right"
+    data-aos-offset="300"
+    data-aos-easing="ease-in-sine"
+    class="left">Temperature - ${temp}°C<img src="img/temperature.png" class="temp"</li>
+
+    <li data-aos="fade-left"
+    data-aos-offset="300"
+    data-aos-easing="ease-in-sine"
+    class="left">Wind Speed - ${data.wind.speed} km/h<img src="img/wind.png" class="humidity"</li>
+
+    <li data-aos="fade-right"
+    data-aos-offset="300"
+    data-aos-easing="ease-in-sine"
+    class="left">Humidity - ${data.main.humidity}%<img src="img/humidity.png" class="humidity"></li>
+
+    <li data-aos="fade-left"
+    data-aos-offset="300"
+    data-aos-easing="ease-in-sine"
+    class="left">${data.weather[0].main}</li>
+
+    <h1 data-aos="fade-up"
+    data-aos-anchor-placement="top-bottom"
+    class="city-name">${data.name}</h1>`;
 
     // Clear the existing content of the weather container
     weatherDetails.innerHTML = '';

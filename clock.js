@@ -13,7 +13,7 @@ function updateClock() {
   seconds = seconds < 10 ? '0' + seconds : seconds;
 
   let time = hours + ':' + minutes + ':' + seconds;
-    let amPm = hours >= 12 ? 'PM' : 'AM';
+  let amPm = hours >= 12 ? 'PM' : 'AM';
 
 
   // Update the clock element with the current time

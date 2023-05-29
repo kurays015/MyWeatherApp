@@ -73,7 +73,7 @@ function displayWeather(data) {
     <li class="left">Temperature - ${temp}°C<img src="img/temperature.png" class="temp"</li>
     <li class="left">Wind Speed - ${data.wind.speed}<img src="img/wind.png" class="humidity"</li>
     <li class="left">Humidity - ${data.main.humidity}%<img src="img/humidity.png" class="humidity"></li>
-    <li class="left">${data.weather[0].main}</li>
+    <li class="left">${data.weather[0].description}</li>
     <h1 class="city-name">${data.name}</h1>`;
 
     // Clear the existing content of the weather container
